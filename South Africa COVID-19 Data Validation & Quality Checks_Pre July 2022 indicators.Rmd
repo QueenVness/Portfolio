@@ -92,12 +92,12 @@ This section pulls from the live google sheets that partners update (files must 
 ```{r}
 #Google Sheet (must be google sheet, cannot be XLSX file) 
 #This section pulls from the live google sheets that partners update
-ANOVA<-read_sheet(as_sheets_id('1d4O3gZwdD1qglk1FW442sYnoHQ9SBH6V60s09kEQrjs'), sheet = "Tracker")
-BROADREACH<-read_sheet(as_sheets_id('1y--S2IOsK-NDPpMKdHDz47LhWYipm2LSwF0hhCcFGXg'), sheet = "Tracker")
-GUIDEHOUSE<-read_sheet(as_sheets_id('1As-AVLcqhduKL0jA-c92D0vlO0gh1wIuumfMzYwNzo0'), sheet = "Tracker")
-GETF_NEXTMILE<-read_sheet(as_sheets_id('1WHdEzsyelf20N60JoP2ascrKQynDvaOEnfV3SRVcdBA'), sheet = "Tracker")
-EQUIP<-read_sheet(as_sheets_id('1-LMibRE6d3cF2ZUDsOQh3bE7VkNN8qfCr53iPw1GbqA'), sheet = "Tracker") #phase out after Dec 2021
-ADAPT_RTC <-read_sheet(as_sheets_id('1k2yDUZk49SRjTq3ceeXzogUw1TnMszjdXGtYJFwW060'), sheet = "RTC") %>% 
+ANOVA<-read_sheet(as_sheets_id('ADD GOOGLE SHEET ID'), sheet = "Tracker")
+BROADREACH<-read_sheet(as_sheets_id('ADD GOOGLE SHEET ID'), sheet = "Tracker")
+GUIDEHOUSE<-read_sheet(as_sheets_id('ADD GOOGLE SHEET ID'), sheet = "Tracker")
+GETF_NEXTMILE<-read_sheet(as_sheets_id('ADD GOOGLE SHEET ID'), sheet = "Tracker")
+EQUIP<-read_sheet(as_sheets_id('ADD GOOGLE SHEET ID'), sheet = "Tracker") #phase out after Dec 2021
+ADAPT_RTC <-read_sheet(as_sheets_id('ADD GOOGLE SHEET ID'), sheet = "RTC") %>% 
   dplyr::mutate(Sub = dplyr::recode(Sub, `N/A` = 'Right to Care')) %>%   #so RTC dataset aligns with others
       mutate_if(is.list, as.character) %>% #tab not in correct format for bind
       dplyr::mutate(`31-Jan-22`= as.logical(`31-Jan-22`)) %>%
@@ -107,23 +107,23 @@ ADAPT_RTC <-read_sheet(as_sheets_id('1k2yDUZk49SRjTq3ceeXzogUw1TnMszjdXGtYJFwW06
       dplyr::mutate(`31-May-22`= as.logical(`31-May-22`)) %>%
       dplyr::mutate(`30-Jun-22`= as.logical(`30-Jun-22`))
 
-ADAPT_Aurum <-read_sheet(as_sheets_id('1k2yDUZk49SRjTq3ceeXzogUw1TnMszjdXGtYJFwW060'), sheet = "Aurum")
+ADAPT_Aurum <-read_sheet(as_sheets_id('ADD GOOGLE SHEET ID'), sheet = "Aurum")
 
-ADAPT_FPD <-read_sheet(as_sheets_id('1k2yDUZk49SRjTq3ceeXzogUw1TnMszjdXGtYJFwW060'), sheet="FPD")
+ADAPT_FPD <-read_sheet(as_sheets_id('ADD GOOGLE SHEET ID'), sheet="FPD")
 
-ADAPT_Genesis <-read_sheet(as_sheets_id('1k2yDUZk49SRjTq3ceeXzogUw1TnMszjdXGtYJFwW060'), sheet="Genesis")
+ADAPT_Genesis <-read_sheet(as_sheets_id('ADD GOOGLE SHEET ID'), sheet="Genesis")
 
-ADAPT_HE2RO <-read_sheet(as_sheets_id('1k2yDUZk49SRjTq3ceeXzogUw1TnMszjdXGtYJFwW060'), sheet="HE2RO")
+ADAPT_HE2RO <-read_sheet(as_sheets_id('ADD GOOGLE SHEET ID'), sheet="HE2RO")
 
-ADAPT_IHPS <-read_sheet(as_sheets_id('1k2yDUZk49SRjTq3ceeXzogUw1TnMszjdXGtYJFwW060'), sheet="IHPS")
+ADAPT_IHPS <-read_sheet(as_sheets_id('ADD GOOGLE SHEET ID'), sheet="IHPS")
 
-ADAPT_NICD <-read_sheet(as_sheets_id('1k2yDUZk49SRjTq3ceeXzogUw1TnMszjdXGtYJFwW060'), sheet="NICD")
+ADAPT_NICD <-read_sheet(as_sheets_id('ADD GOOGLE SHEET ID'), sheet="NICD")
 
-ADAPT_Qode <-read_sheet(as_sheets_id('1k2yDUZk49SRjTq3ceeXzogUw1TnMszjdXGtYJFwW060'), sheet="Qode")
+ADAPT_Qode <-read_sheet(as_sheets_id('ADD GOOGLE SHEET ID'), sheet="Qode")
 
-ADAPT_ReAction <-read_sheet(as_sheets_id('1k2yDUZk49SRjTq3ceeXzogUw1TnMszjdXGtYJFwW060'), sheet="ReAction!")
+ADAPT_ReAction <-read_sheet(as_sheets_id('ADD GOOGLE SHEET ID'), sheet="ReAction!")
 
-ADAPT_Stellenbosch <-read_sheet(as_sheets_id('1k2yDUZk49SRjTq3ceeXzogUw1TnMszjdXGtYJFwW060'), sheet="Stellenbosch")
+ADAPT_Stellenbosch <-read_sheet(as_sheets_id('ADD GOOGLE SHEET ID'), sheet="Stellenbosch")
 
 ADAPT <-bind_rows(ADAPT_RTC,ADAPT_Aurum, ADAPT_FPD,ADAPT_Genesis,ADAPT_HE2RO,
     ADAPT_IHPS,ADAPT_NICD,ADAPT_Qode,ADAPT_ReAction,ADAPT_Stellenbosch)%>%  
@@ -613,3 +613,4 @@ EQUIP_wb<- openxlsx::loadWorkbook("EQUIP_COVID-19 DQRT Tracker.xlsx")
 #write_excel_csv(Level2, paste0("SA_COVID19_LEVEL2_DataVal_DataQual_", format(Sys.time(), "%d-%b-%Y"), ".csv"))
 
 ```
+
